@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
-using minimal_api.Domain.Entities;
+using MinimalApi.Domain.Entities;
 
-namespace minimal_api.Infrastructure.Db
+namespace MinimalApi.Infrastructure.Db
 {
     public class DbContexto : DbContext
     {
@@ -18,6 +18,18 @@ namespace minimal_api.Infrastructure.Db
         }
 
         public DbSet<Administrador> Administradores { get; set; } = default;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Administrador>().HasData(
+                new Administrador {
+                    Id = 1,
+                    Email = "Administrador@teste.com",
+                    Senha = "123456",
+                    Perfil = "Adm"
+                }
+            );
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

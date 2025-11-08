@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace minimal_api.Domain.DTOs
+namespace MinimalApi.Domain.DTOs
 {
     public class LoginDTO
 {

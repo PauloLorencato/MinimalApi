@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using minimal_api.Infrastructure.Db;
+using MinimalApi.Infrastructure.Db;
 
 #nullable disable
 
-namespace minimal_api.Migrations
+namespace MinimalApi.Migrations
 {
     [DbContext(typeof(DbContexto))]
     [Migration("20251108175311_AdministradorMigration")]
