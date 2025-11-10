@@ -41,7 +41,7 @@ app.MapPost("/administradores/login", ([FromBody] LoginDTO loginDTO, IAdministra
         return Results.Ok("Login com sucesso");
     else
         return Results.Unauthorized();
-});
+}).WithTags("Administradores");
 #endregion
 
 #region Veiculos
@@ -56,12 +56,12 @@ app.MapPost("/veiculos", ([FromBody] VeiculoDTO veiculoDTO, IVeiculoService veic
     veiculoService.Incluir(veiculo);
 
     return Results.Created($"/veiculo/{veiculo.Id}", veiculo);
-});
+}).WithTags("Veiculos");
 app.MapGet("/veiculos", ([FromQuery]int? pagina, IVeiculoService veiculoService) =>
 {
     var veiculos = veiculoService.Todos(pagina);
     return Results.Ok(veiculos);
-});
+}).WithTags("Veiculos");
 #endregion
 
 #region App
