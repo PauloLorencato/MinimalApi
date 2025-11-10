@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using minimal_api.Domain.Interfaces;
+using MinimalApi.Domain.Interfaces;
 using MinimalApi.Domain.Entities;
 using MinimalApi.Infrastructure.Db;
 
-namespace minimal_api.Domain.Services
+namespace MinimalApi.Domain.Services
 {
     public class VeiculoService : IVeiculoService
     {

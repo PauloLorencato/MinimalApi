@@ -1,6 +1,6 @@
 using MinimalApi.Domain.Entities;
 
-namespace minimal_api.Domain.Interfaces;
+namespace MinimalApi.Domain.Interfaces;
 
 public interface IVeiculoService
 {
