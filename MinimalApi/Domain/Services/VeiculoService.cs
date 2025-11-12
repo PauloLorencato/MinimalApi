@@ -37,7 +37,7 @@ namespace MinimalApi.Domain.Services
             _context.SaveChanges();
         }
 
-        public List<Veiculo> Todos(int? pagina = 1, string? nome = null, string? marga = null)
+        public List<Veiculo> Todos(int? pagina = 1, string? nome = null, string? marca = null)
         {
             var query = _context.Veiculos.AsQueryable();
             if (!string.IsNullOrEmpty(nome))
