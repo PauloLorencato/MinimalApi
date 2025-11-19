@@ -1,10 +1,9 @@
 version: '3.8'
-
 services:
   minimal-api:
     build:
       context: .
-      dockerfile: minimal-api/Dockerfile
+      dockerfile: MinimalApi/Dockerfile
     ports:
       - "8080:80"
     environment:
@@ -12,6 +11,8 @@ services:
       - ConnectionStrings__mysql=Server=db;Port=3306;Database=minimalapi;User=root;Password=mysql_root_password
     depends_on:
       - db
+    networks:
+      - minimal-api
 
   db:
     image: mysql:8.0
@@ -24,6 +25,12 @@ services:
       - MYSQL_DATABASE=minimalapi
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - minimal-api
 
 volumes:
   mysql_data:
+
+networks:
+  minimal-api:
+    name: minimal-api
