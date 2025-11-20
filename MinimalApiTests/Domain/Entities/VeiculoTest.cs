@@ -6,7 +6,7 @@ namespace MinimalApiTests.Domain.Entities
     public class VeiculoTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestGetSetProperties()
         {
             // Arrange
             var veiculo = new Veiculo();
