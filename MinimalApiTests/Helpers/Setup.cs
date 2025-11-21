@@ -26,6 +26,7 @@ namespace MinimalApiTests.Helpers
             builder.ConfigureServices(services =>
             {
                 services.AddScoped<IAdministradorService, AdministradorServiceMock>();
+                services.AddScoped<IVeiculoService, VeiculoServiceMock>();
             });
 
         });

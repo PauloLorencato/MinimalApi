@@ -80,7 +80,8 @@ public class AdministradorRequestTest
         };
 
         var content = new StringContent(JsonSerializer.Serialize(novoAdm), Encoding.UTF8,  "Application/json");
-        Setup.client.DefaultRequestHeaders.Add("Authorization", $"Bearer {await GetToken()}");
+        if (!Setup.client.DefaultRequestHeaders.Contains("Authorization"))
+            Setup.client.DefaultRequestHeaders.Add("Authorization", $"Bearer {await GetToken()}");
 
         // Act
         var response = await Setup.client.PostAsync("/administradores", content);
@@ -102,7 +103,8 @@ public class AdministradorRequestTest
     public async Task GetAdmsPorPaginaRequest()
     {
         // Arrange
-        Setup.client.DefaultRequestHeaders.Add("Authorization", $"Bearer {await GetToken()}");
+        if (!Setup.client.DefaultRequestHeaders.Contains("Authorization"))
+            Setup.client.DefaultRequestHeaders.Add("Authorization", $"Bearer {await GetToken()}");
 
         // Act
         var response = await Setup.client.GetAsync("/administradores/");
@@ -125,7 +127,8 @@ public class AdministradorRequestTest
     public async Task GetAdmPorIdRequest()
     {
         // Arrange
-        Setup.client.DefaultRequestHeaders.Add("Authorization", $"Bearer {await GetToken()}");
+        if (!Setup.client.DefaultRequestHeaders.Contains("Authorization"))
+            Setup.client.DefaultRequestHeaders.Add("Authorization", $"Bearer {await GetToken()}");
 
         // Act
         var response = await Setup.client.GetAsync("/administradores/1");
